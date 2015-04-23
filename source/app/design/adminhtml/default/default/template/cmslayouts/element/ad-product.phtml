@@ -1,0 +1,21 @@
+<?php
+/**
+ * Yireo CmsLayouts for Magento
+ *
+ * @package     Yireo_CmsLayouts
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @license     Open Source License (OSL v3)
+ * @link        https://www.yireo.com/
+ */
+
+$data = $this->getValues();
+$product = Mage::getModel('catalog/product');
+if (!empty($data['product'])) {
+    $product->load((int) $data['product']);
+}
+
+$productImage = Mage::getModel('catalog/product_media_config')->getMediaUrl( $product->getThumbnail() );
+?>
+<h1>Product: <?= $product->getName() ?></h1>
+<img src="<?= $productImage ?>" />

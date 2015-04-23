@@ -1,0 +1,19 @@
+<?php
+/**
+ * Yireo CmsLayouts for Magento
+ *
+ * @package     Yireo_CmsLayouts
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @license     Open Source License (OSL v3)
+ * @link        https://www.yireo.com/
+ */
+
+$data = $this->getValues();
+?>
+<div style="background-color: <?= $data['color'] ?>">
+    <h1><?= $data['text'] ?></h1>
+    Color: <?= $data['color'] ?><br/>
+    Image: <img src="<?= $data['image'] ?>" name="<?= $data['text'] ?>" />
+</div>
+

@@ -1,0 +1,39 @@
+<?php
+/**
+ * Yireo SalesBlock for Magento
+ *
+ * @package     Yireo_SalesBlock
+ * @rule      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4><?php echo $this->__('Edit'); ?></h4>
+    </div>
+    <div class="fieldset">
+        <table cellspacing="0" class="form-list">
+            <tbody>
+            <tr class="headings">
+                <td class="label">
+                    <label for="mockup_file"><?php echo Mage::helper('cmslayouts')->__('Mockup')?></label>
+                </td>
+                <td class="value">
+                    <?php $options = $this->getMockupFileOptions(); ?>
+                    <?php if(!empty($options)) : ?>
+                        <select name="mockup_file">
+                            <?php foreach($options as $option): ?>
+                                <?php $selected = ($option['code'] == $this->getCurrentMockupFile()) ? 'selected="selected"' : null; ?>
+                                <option value="<?php echo $option['code']; ?><?php echo $selected; ?>"><?php echo $option['title']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    <?php else: ?>
+                        No mockups available
+                    <?php endif; ?>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

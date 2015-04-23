@@ -1,0 +1,71 @@
+div.cmslayouts div.theme-banner {
+    border: 1px solid #aaa;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+}
+
+div.cmslayouts div.theme-banner div.inner {
+    padding: 50px;
+}
+
+div.cmslayouts div.theme-banner div.inner span.placeholder {
+    font-size: 300%;
+}
+
+div.cmslayouts div.ad-columns {
+    border: 1px solid #aaa;
+    height:420px;
+    border: 1px solid #eee;
+}
+
+div.cmslayouts div.ad-columns div.column-33 {
+    float: left;
+    text-align: center;
+    width: 33%;
+}
+
+div.cmslayouts div.ad-columns div.ad-main,
+div.cmslayouts div.ad-columns div.ad-product,
+div.cmslayouts div.ad-columns div.ad-left-top,
+div.cmslayouts div.ad-columns div.ad {
+    padding: 30px;
+    height: 300px;
+    margin: 10px;
+}
+
+div.cmslayouts div.ad-columns div.ad .placeholder {
+    font-size: 300%;
+}
+
+div.cmslayouts div.ad-columns div.ad-main {
+    border: 1px solid #aaa;
+
+}
+
+div.cmslayouts div.ad-columns div.ad-product {
+    border: 1px solid #aaa;
+}
+
+div.cmslayouts div.ad-columns div.ad-left-top {
+    border: 1px solid #aaa;
+    padding: 30px;
+    height: 140px;
+    margin: 10px;
+}
+
+div.cmslayouts div.ad-columns div.ad-left-bottom div.ad-left-bottom-1 {
+    border: 1px solid #aaa;
+    float: left;
+    width: 45%;
+    height: 140px;
+    margin-left: 10px;
+}
+
+div.cmslayouts div.ad-columns div.ad-left-bottom div.ad-left-bottom-2 {
+    border: 1px solid #aaa;
+    float: left;
+    width: 45%;
+    height: 140px;
+    margin-left: 10px;
+}

@@ -1,0 +1,69 @@
+<?php
+/**
+ * Yireo CmsLayouts for Magento
+ *
+ * @package     Yireo_CmsLayouts
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @license     Open Source License (OSL v3)
+ * @link        https://www.yireo.com/
+ */
+?>
+<a href="#" onclick="return toggleElementForm('element-form-<?= $this->getCode() ?>');">
+<div class="<?= $this->getCode() ?>" id="element-<?= $this->getCode() ?>">
+    <div class="inner">
+        <?php $elementHtml = $this->getElementHtml(); ?>
+        <?php if(!empty($elementHtml)) : ?>
+            <!-- PHTML template: <?= $this->getElementTemplate(); ?> -->
+            <?= $elementHtml; ?>
+        <?php else: ?>
+            <span class="placeholder"><?= $this->getCode() ?></span><br/>
+            <span class="template">Template: <?= $this->getElementTemplate(); ?></span>
+        <?php endif; ?>
+    </div>
+</div>
+</a>
+<div class="element-form" id="element-form-<?= $this->getCode() ?>" style="display:none">
+    <div class="inner">
+        <h2><?= $this->getCode(); ?> - <?= $this->__('Settings') ?></h2>
+        <table class="table-form">
+            <?php foreach ($this->getFormFields() as $field) : ?>
+                <tr>
+                    <td>
+                        <?= $field['label'] ?>
+                    </td>
+                    <td>
+                        <?php if ($field['type'] == 'select'): ?>
+                            <select name="element[<?= $this->getCode() ?>][<?= $field['name'] ?>]">
+                                <?php foreach ($field['options'] as $optionValue => $optionLabel) : ?>
+                                    <option value="<?= $optionValue; ?>"><?= $optionLabel ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        <?php else: ?>
+                            <input type="<?= $field['type'] ?>" data-element-id="<?= $field['id'] ?>" data-element-name="<?= $field['name'] ?>"
+                                   name="element[<?= $this->getCode() ?>][<?= $field['name'] ?>]" value="<?= $field['value'] ?>" />
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <tr>
+                <td colspan="2" align="right">
+                    <button type="button" class="task" onclick="return postElement(<?= $field['id'] ?>, '<?= $this->getCode() ?>');">
+                        <span>
+                            <span>
+                                <span>Save</span>
+                            </span>
+                        </span>
+                    </button>
+                    <button type="button" class="back" onclick="return toggleElementForm('element-form-<?= $this->getCode() ?>');">
+                        <span>
+                            <span>
+                                <span>Cancel</span>
+                            </span>
+                        </span>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

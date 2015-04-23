@@ -1,0 +1,47 @@
+<?php
+/**
+ * Yireo SalesBlock for Magento 
+ *
+ * @package     Yireo_SalesBlock
+ * @rule      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+?>
+<?php
+$entity = $this->getEntity();
+?>
+<div class="content-header">
+<table cellspacing="0">
+	<tr>
+		<td style="width:40%;">
+            <h3 class="icon-head head-tag"><?php echo $this->getHeader('Edit'); ?></h3>
+        </td>
+        <td class="formbuttons" align="right">
+            <?php echo $this->getChildHtml('back_button'); ?>
+            <?php echo $this->getChildHtml('delete_button'); ?>
+            <?php echo $this->getChildHtml('save_button'); ?>
+            <?php echo $this->getChildHtml('apply_button'); ?>
+        </td>
+	</tr>
+</table>
+</div>
+
+<div id="alert_messages_block"><?php echo $this->getMessageHtml() ?></div>
+
+<form action="<?php echo $this->getSaveUrl() ?>" method="post" id="edit_form" enctype="multipart/form-data">
+
+<?php if($this->getId() > 0) : ?>
+    <?php echo $this->getChildHtml('edit') ?>
+<?php else: ?>
+    <?php echo $this->getChildHtml('select') ?>
+<?php endif; ?>
+
+<input type="hidden" name="mockup_id" value="<?php echo $this->getEntity()->getMockupId(); ?>" />
+<?php echo $this->getBlockHtml('formkey')?>
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+var editForm = new varienForm('edit_form');
+</script>

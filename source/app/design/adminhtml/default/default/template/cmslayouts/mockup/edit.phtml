@@ -1,0 +1,76 @@
+<?php
+/**
+ * Yireo SalesBlock for Magento
+ *
+ * @package     Yireo_SalesBlock
+ * @rule      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ */
+?>
+
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4><?php echo $this->__('Edit'); ?></h4>
+    </div>
+    <div class="fieldset">
+        <table cellspacing="0" class="form-list">
+            <tbody>
+            <tr class="headings">
+                <td class="label">
+                    <label for="label"><?php echo Mage::helper('cmslayouts')->__('Label')?></label>
+                </td>
+                <td class="value">
+                    <input type="text" name="label" value="<?php echo $this->getEntity()->getLabel(); ?>" />
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<?php echo $this->getChildHtml('mockup_file'); ?>
+
+<script>
+    function toggleElementForm(element) {
+        $(element).toggle();
+    }
+
+    function postElement(id, code) {
+
+        var formKey = '<?= Mage::getSingleton('core/session')->getFormKey() ?>';
+        var parameters = 'form_key=' + formKey + '&element_id=' + id;
+        var container = $('element-' + code);
+
+        $$('[data-element-id=' + id + ']').each(function(htmlElement) {
+            htmlName = $(htmlElement).readAttribute('data-element-name');
+            htmlValue = $(htmlElement).value;
+            parameters = parameters + '&data[' + htmlName + ']=' + htmlValue;
+        });
+
+        new Ajax.Request('<?php echo $this->getUrl('adminhtml/cmslayouts/saveElementThroughAjax'); ?>', {
+            method: 'post',
+            parameters: parameters,
+            onSuccess: function(transport) {
+
+                window.location.reload();
+
+                /*
+                var parameters = 'form_key=' + formKey + '&element_id=' + id;
+
+                new Ajax.Request('<?php echo $this->getUrl('adminhtml/cmslayouts/getElementHtmlById'); ?>', {
+                    method: 'get',
+                    evalScripts: true,
+                    parameters: parameters,
+                    onSuccess: function(transport) {
+                        content = transport.responseText;
+                        $('element-form-' + code).toggle();
+                        container.update(content);
+
+                    }
+                });
+                */
+            }
+        });
+    }
+</script>

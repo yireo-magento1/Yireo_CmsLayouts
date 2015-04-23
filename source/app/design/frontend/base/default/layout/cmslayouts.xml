@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yireo SalesBlock-module
+ *
+ * @package     Yireo_SalesBlock
+ * @author      Yireo
+ * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @license     Open Software License
+ *
+ * Usage: Refer to our online tutorials for using the Yireo_SalesBlock module
+ */
+-->
+<layout version="0.1.0">
+    <salesblock_index_index>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+          </reference>
+        <reference name="content">
+            <block type="salesblock/content" name="salesblock.content" template="salesblock/content.phtml" />
+        </reference>
+    </salesblock_index_index>
+</layout>

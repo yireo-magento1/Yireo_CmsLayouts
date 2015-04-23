@@ -1,0 +1,44 @@
+<?php
+/**
+ * Yireo CmsLayouts for Magento
+ *
+ * @package Yireo_CmsLayouts
+ * @author Yireo (http://www.yireo.com/)
+ * @copyright Copyright 2015 Yireo (http://www.yireo.com/)
+ * @license Open Software License
+ * @link http://www.yireo.com
+ */
+?>
+
+<div class="content-header">
+<table cellspacing="0">
+	<tr>
+		<td style="width:80%;">
+            <h3 class="icon-head head-tag"><?php echo $this->getHeader('Mockups'); ?></h3>
+        </td>
+        <td class="formbuttons" style="text-align:right;">
+            <?php echo $this->getNewButtonHtml(); ?>
+        </td>
+	</tr>
+</table>
+</div>
+
+<div class="entry-edit">
+    <form method="post" action="<?php echo $this->getUrl('adminhtml/cmslayouts/mockups'); ?>" name="cmslayouts_form" id="cmslayouts_form">
+    <?php echo $this->getGridHtml() ?>
+    </form>
+</div>
+
+<script type="text/javascript">
+var cmslayoutsForm = new varienForm('cmslayouts_form');
+//cmslayoutsForm.submit = function(url) {
+//    alert('test: ' + url);
+//}
+</script>
+
+<div style="text-align:center;">
+<div style="font-size:90%; color:#575757; padding-top:20px;">
+        CmsLayouts v<?php echo $this->getVersion(); ?> &nbsp; - &nbsp;
+        Copyright &copy; 2015 <a href="http://www.yireo.com/" target="_new">Yireo</a>
+</div>
+</div>

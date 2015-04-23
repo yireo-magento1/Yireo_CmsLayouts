@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yireo CmsLayouts for Magento 
+ *
+ * @package     Yireo_CmsLayouts
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @license     Open Source License (OSL v3)
+ */
+-->
+<config>
+
+    <modules>
+        <Yireo_CmsLayouts>
+            <version>0.0.2</version>
+        </Yireo_CmsLayouts>
+    </modules>
+
+    <global>
+
+        <blocks>
+            <cmslayouts>
+                <class>Yireo_CmsLayouts_Block</class>
+            </cmslayouts>
+        </blocks>
+
+        <helpers>
+            <cmslayouts>
+                <class>Yireo_CmsLayouts_Helper</class>
+            </cmslayouts>
+        </helpers>
+
+        <models>
+            <cmslayouts>
+                <class>Yireo_CmsLayouts_Model</class>
+                <resourceModel>cmslayouts_mysql4</resourceModel>
+            </cmslayouts>
+            <cmslayouts_mysql4>
+                <class>Yireo_CmsLayouts_Model_Mysql4</class>
+                <entities>
+                    <mockup>
+                        <table>cmslayouts_mockup</table>
+                    </mockup>
+                    <element>
+                        <table>cmslayouts_element</table>
+                    </element>
+                </entities>
+            </cmslayouts_mysql4>
+        </models>
+
+        <resources>
+            <cmslayouts_setup>
+                <setup>
+                    <module>Yireo_CmsLayouts</module>
+                    <class>Mage_Catalog_Model_Resource_Eav_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </cmslayouts_setup>
+            <cmslayouts_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </cmslayouts_write>
+            <cmslayouts_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </cmslayouts_read>
+        </resources>
+
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <cmslayouts after="Mage_Adminhtml">Yireo_CmsLayouts</cmslayouts>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <frontend>
+        <routers>
+            <cmslayouts>
+                <use>standard</use>
+                <args>
+                    <module>Yireo_CmsLayouts</module>
+                    <frontName>cmslayouts</frontName>
+                </args>
+            </cmslayouts>
+        </routers>
+
+        <translate>
+            <modules>
+                <Yireo_CmsLayouts>
+                    <files>
+                        <default>Yireo_CmsLayouts.csv</default>
+                    </files>
+                </Yireo_CmsLayouts>
+            </modules>
+        </translate>
+    </frontend>
+
+    <default>
+        <cmslayouts>
+            <settings>
+            </settings>
+        </cmslayouts>
+    </default>
+
+</config>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yireo CmsLayouts for Magento
+ *
+ * @package     Yireo_CmsLayouts
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @license     Open Source License (OSL v3)
+ */
+-->
+<config>
+    <menu>
+        <cms>
+            <children>
+                <cmslayouts translate="title" module="cmslayouts">
+                    <title>CMS Layouts</title>
+                    <action>adminhtml/cmslayouts/mockups</action>
+                </cmslayouts>
+            </children>
+        </cms>
+    </menu>
+
+    <translate>
+        <modules>
+            <Yireo_CmsLayouts>
+                <files>
+                    <default>Yireo_CmsLayouts.csv</default>
+                </files>
+            </Yireo_CmsLayouts>
+        </modules>
+    </translate>
+
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <cmslayouts translate="title" module="cmslayouts">
+                                <title>CmsLayouts</title>
+                            </cmslayouts>
+                        </children>
+                    </cms>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <cmslayouts translate="title" module="cmslayouts">
+                                        <title>CmsLayouts Section</title>
+                                    </cmslayouts>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
