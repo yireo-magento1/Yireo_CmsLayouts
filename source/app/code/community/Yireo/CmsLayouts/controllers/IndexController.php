@@ -16,7 +16,7 @@
  */
 class Yireo_CmsLayouts_IndexController extends Mage_Core_Controller_Front_Action
 {
-    public function noRouteAction()
+    public function noRouteAction($coreRoute = null)
     {
         die('noRoute');
     }

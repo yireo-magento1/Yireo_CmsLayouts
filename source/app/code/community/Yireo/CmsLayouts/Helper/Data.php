@@ -13,14 +13,16 @@
  */
 class Yireo_CmsLayouts_Helper_Data extends Mage_Core_Helper_Abstract
 {
-    public function getMockupXmlFile($mockupFile)
+    public function getMockupXmlFile($matchMockupFile)
     {
         $mockupFiles = $this->getMockupXmlFiles();
         foreach($mockupFiles as $mockupFile) {
-            return $mockupFile;
+            if(basename($mockupFile) == $matchMockupFile.'.xml') {
+                return $mockupFile;
+            }
         }
 
-        return false;
+        throw new Exception('Unable to find Yireo_CmsLayouts XML file for mockup "'.$matchMockupFile.'"');
     }
 
     public function getMockupXmlFiles()
@@ -99,5 +101,12 @@ class Yireo_CmsLayouts_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         return false;
+    }
+
+    public function getProductIdFromString($string)
+    {
+        $string = preg_replace('/^product\//', '', $string);
+
+        return (int) $string;
     }
 }

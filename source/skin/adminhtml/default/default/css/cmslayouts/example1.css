@@ -1,0 +1,39 @@
+div.cmslayouts div.example1-banner {
+    border: 1px solid #aaa;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+}
+
+div.cmslayouts div.example1-banner div.inner {
+    padding: 50px;
+}
+
+div.cmslayouts div.example1-banner div.inner span.placeholder {
+    font-size: 300%;
+}
+
+div.cmslayouts div.example1-columns {
+    border: 1px solid #aaa;
+    height:420px;
+    border: 1px solid #eee;
+}
+
+div.cmslayouts div.example1-columns div.column-33 {
+    float: left;
+    text-align: center;
+    width: 33%;
+}
+
+div.cmslayouts div.example1-columns div.example1-right,
+div.cmslayouts div.example1-columns div.example1-middle,
+div.cmslayouts div.example1-columns div.example1-left {
+    border: 1px solid #aaa;
+    padding: 30px;
+    height: 300px;
+    margin: 10px;
+}
+
+div.cmslayouts div.example1-columns .placeholder {
+    font-size: 300%;
+}

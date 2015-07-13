@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_cmslayouts_editmockup>
+        <reference name="content">
+            <block type="cmslayouts/adminhtml_mockup" name="mockup" />
+        </reference>
+        <update handle="editor"/>
+    </adminhtml_cmslayouts_editmockup>
+</layout>

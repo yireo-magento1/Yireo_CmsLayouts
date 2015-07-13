@@ -6,8 +6,12 @@
  * @author      Yireo (http://www.yireo.com/)
  * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
  * @license     Open Source License (OSL v3)
- * @link        https://www.yireo.com/
+ * @link        http://www.yireo.com/
  */
 
-$data = $this->getValues();
-print_r($data);
+/**
+ * Class Yireo_CmsLayouts_Block_Adminhtml_Mockup_File
+ */
+class Yireo_CmsLayouts_Block_Adminhtml_Mockup_File extends Mage_Adminhtml_Block_Widget_Container
+{
+}

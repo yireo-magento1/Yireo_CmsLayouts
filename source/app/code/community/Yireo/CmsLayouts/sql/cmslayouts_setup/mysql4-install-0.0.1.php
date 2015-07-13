@@ -17,8 +17,8 @@ CREATE TABLE IF NOT EXISTS {$this->getTable('cmslayouts_mockup')} (
   `mockup_id` int(11) NOT NULL auto_increment,
   `label` varchar(255) NOT NULL DEFAULT 0,
   `identifier` varchar(255) NOT NULL DEFAULT 0,
-  `layout` varchar(255) NOT NULL DEFAULT 0,
-  `is_active` int(1) NOT NULL auto_increment,
+  `mockup_file` varchar(255) NOT NULL DEFAULT 0,
+  `is_active` int(1) NOT NULL,
   PRIMARY KEY  (`mockup_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ");
@@ -26,11 +26,11 @@ CREATE TABLE IF NOT EXISTS {$this->getTable('cmslayouts_mockup')} (
 $installer->run("
 CREATE TABLE IF NOT EXISTS {$this->getTable('cmslayouts_element')} (
   `element_id` int(11) NOT NULL auto_increment,
-  `mockup_id` int(11) NOT NULL auto_increment,
+  `mockup_id` int(11) NOT NULL,
   `code` varchar(255) NOT NULL DEFAULT 0,
-  `value` text NOT NULL DEFAULT 0,
+  `value` text NOT NULL,
   `type` varchar(255) NOT NULL DEFAULT 0,
-  `is_active` int(1) NOT NULL auto_increment,
+  `is_active` int(1) NOT NULL,
   PRIMARY KEY  (`element_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ");

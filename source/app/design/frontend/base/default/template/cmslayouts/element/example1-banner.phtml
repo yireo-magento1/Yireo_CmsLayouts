@@ -10,4 +10,10 @@
  */
 
 $data = $this->getValues();
-print_r($data);
+?>
+<div style="background-color: <?= $data['color'] ?>">
+    <h1><?= $data['text'] ?></h1>
+    Color: <?= $data['color'] ?><br/>
+    Image: <?= $data['image'] ?>
+</div>
+

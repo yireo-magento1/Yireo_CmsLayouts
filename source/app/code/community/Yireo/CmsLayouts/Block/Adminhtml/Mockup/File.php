@@ -23,6 +23,11 @@ class Yireo_CmsLayouts_Block_Adminhtml_Mockup_File extends Mage_Adminhtml_Block_
         $mockupFile = $mockup->getMockupFile();
         $this->setTemplate('cmslayouts/mockups/'.$mockupFile.'.phtml');
 
+        $templateFile = $this->getTemplateFile();
+        if (file_exists(Mage::getBaseDir('design') . DS . $templateFile) == false) {
+            return false;
+        }
+
         return parent::_toHtml();
     }
 
@@ -31,8 +36,13 @@ class Yireo_CmsLayouts_Block_Adminhtml_Mockup_File extends Mage_Adminhtml_Block_
      *
      * @param $code
      */
-    public function getElement($code)
+    public function includeElementHtml($code)
     {
+        if (empty($code)) {
+            echo 'No code';
+            return;
+        }
+
         $element = $this->getLayout()->createBlock('cmslayouts/adminhtml_element', 'cmslayout.element.'.$code);
 
         $element->setMockup($this->getMockup());

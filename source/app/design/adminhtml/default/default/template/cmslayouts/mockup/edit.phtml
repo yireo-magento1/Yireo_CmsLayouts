@@ -1,11 +1,12 @@
 <?php
 /**
- * Yireo SalesBlock for Magento
+ * Yireo CmsLayouts for Magento
  *
- * @package     Yireo_SalesBlock
- * @rule      Yireo (http://www.yireo.com/)
- * @copyright   Copyright (c) 2012 Yireo (http://www.yireo.com/)
- * @license     Open Software License
+ * @package     Yireo_CmsLayouts
+ * @author      Yireo (http://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @license     Open Source License (OSL v3)
+ * @link        https://www.yireo.com/
  */
 ?>
 
@@ -36,41 +37,8 @@
         $(element).toggle();
     }
 
-    function postElement(id, code) {
-
-        var formKey = '<?= Mage::getSingleton('core/session')->getFormKey() ?>';
-        var parameters = 'form_key=' + formKey + '&element_id=' + id;
-        var container = $('element-' + code);
-
-        $$('[data-element-id=' + id + ']').each(function(htmlElement) {
-            htmlName = $(htmlElement).readAttribute('data-element-name');
-            htmlValue = $(htmlElement).value;
-            parameters = parameters + '&data[' + htmlName + ']=' + htmlValue;
-        });
-
-        new Ajax.Request('<?php echo $this->getUrl('adminhtml/cmslayouts/saveElementThroughAjax'); ?>', {
-            method: 'post',
-            parameters: parameters,
-            onSuccess: function(transport) {
-
-                window.location.reload();
-
-                /*
-                var parameters = 'form_key=' + formKey + '&element_id=' + id;
-
-                new Ajax.Request('<?php echo $this->getUrl('adminhtml/cmslayouts/getElementHtmlById'); ?>', {
-                    method: 'get',
-                    evalScripts: true,
-                    parameters: parameters,
-                    onSuccess: function(transport) {
-                        content = transport.responseText;
-                        $('element-form-' + code).toggle();
-                        container.update(content);
-
-                    }
-                });
-                */
-            }
-        });
+    function submitForm(task) {
+        $('form_redirect').setValue(task);
+        return editForm.submit();
     }
 </script>

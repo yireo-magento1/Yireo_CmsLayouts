@@ -25,6 +25,29 @@ div.element-form div.inner table {
     text-align: left;
 }
 
+div.element-container {
+    position: relative;
+    background-color: orange;
+}   
+    
+div.element-container div.element-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; 
+    bottom: 0;      
+    -moz-opacity: 0.60;
+    opacity: 0.6;
+    background-color: white;
+    padding: 20px;
+}
+    
+div.element-container div.element-buttons {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
 div.cmslayouts a {
     text-decoration: none;
     color: #444;

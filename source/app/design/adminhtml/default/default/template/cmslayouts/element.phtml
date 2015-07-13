@@ -8,9 +8,10 @@
  * @license     Open Source License (OSL v3)
  * @link        https://www.yireo.com/
  */
+
+// See Yireo_CmsLayouts_Block_Adminhtml_Element
 ?>
-<a href="#" onclick="return toggleElementForm('element-form-<?= $this->getCode() ?>');">
-<div class="<?= $this->getCode() ?>" id="element-<?= $this->getCode() ?>">
+<div class="element-container <?= $this->getCode() ?>" id="element-<?= $this->getCode() ?>">
     <div class="inner">
         <?php $elementHtml = $this->getElementHtml(); ?>
         <?php if(!empty($elementHtml)) : ?>
@@ -21,34 +22,65 @@
             <span class="template">Template: <?= $this->getElementTemplate(); ?></span>
         <?php endif; ?>
     </div>
+    <a href="#" onclick="return toggleElementForm('element-form-<?= $this->getCode() ?>');">
+        <div class="element-overlay">
+            &nbsp;
+        </div>
+    </a>
+    <div class="element-buttons">
+        <button type="button" onclick="return toggleElementForm('element-form-<?= $this->getCode() ?>');" class="edit">
+            <span><span><?php echo $this->__('Edit'); ?></span></span>
+        </button>
+    </div>
 </div>
-</a>
 <div class="element-form" id="element-form-<?= $this->getCode() ?>" style="display:none">
     <div class="inner">
         <h2><?= $this->getCode(); ?> - <?= $this->__('Settings') ?></h2>
         <table class="table-form">
-            <?php foreach ($this->getFormFields() as $field) : ?>
+            <?php $fields = $this->getFormFields(); ?>
+            <?php if(!empty($fields)) : ?>
+            <?php foreach ($fields as $field) : ?>
                 <tr>
                     <td>
-                        <?= $field['label'] ?>
-                    </td>
-                    <td>
                         <?php if ($field['type'] == 'select'): ?>
-                            <select name="element[<?= $this->getCode() ?>][<?= $field['name'] ?>]">
-                                <?php foreach ($field['options'] as $optionValue => $optionLabel) : ?>
-                                    <option value="<?= $optionValue; ?>"><?= $optionLabel ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                            <span class="field-row">
+                                <label for=""><?= $field['label'] ?></label>
+                                <select name="element[<?= $this->getCode() ?>][<?= $field['name'] ?>]">
+                                    <?php foreach ($field['options'] as $optionValue => $optionLabel) : ?>
+                                        <?php $selected = ($optionValue == $field['value']) ? 'selected="selected"' : null; ?>
+                                        <option value="<?= $optionValue; ?>" <?= $selected; ?>><?= $optionLabel ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                             </span>
+
+                        <?php elseif ($field['type'] == 'image'): ?>
+                            <span class="field-row">
+                                <label for=""><?= $field['label'] ?> - <?= $this->__('Existing Image'); ?></label>
+                                <select name="element[<?= $this->getCode() ?>][<?= $field['name'] ?>]">
+                                    <?php foreach ($this->getImageOptions() as $imageValue => $imageLabel) : ?>
+                                        <?php $selected = ($imageValue == $field['value']) ? 'selected="selected"' : null; ?>
+                                        <option value="<?= $imageValue; ?>" <?= $selected; ?>><?= $imageLabel ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                             </span>
+                            <?= $this->getUploadForm($this->getCode(), $field['name'], $field['value'])->getHtml(); ?>
+
+                        <?php elseif ($field['type'] == 'product'): ?>
+                            <?= $this->getProductForm($this->getCode(), $field['name'], $field['value'])->getHtml(); ?>
                         <?php else: ?>
-                            <input type="<?= $field['type'] ?>" data-element-id="<?= $field['id'] ?>" data-element-name="<?= $field['name'] ?>"
-                                   name="element[<?= $this->getCode() ?>][<?= $field['name'] ?>]" value="<?= $field['value'] ?>" />
+                            <span class="field-row">
+                                <label for=""><?= $field['label'] ?></label>
+                                <input type="<?= $field['type'] ?>" name="element[<?= $this->getCode() ?>][<?= $field['name'] ?>]" value="<?= $field['value'] ?>" />
+                            </span>
                         <?php endif; ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
+            <?php endif; ?>
             <tr>
                 <td colspan="2" align="right">
-                    <button type="button" class="task" onclick="return postElement(<?= $field['id'] ?>, '<?= $this->getCode() ?>');">
+                    <input type="hidden" name="element[<?= $this->getCode() ?>][id]" value="<?= $this->getId() ?>" />
+                    <button type="button" class="task" onclick="return submitForm('current');">
                         <span>
                             <span>
                                 <span>Save</span>

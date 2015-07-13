@@ -21,6 +21,14 @@
         </cms>
     </menu>
 
+    <!--<layout>
+        <updates>
+            <cmslayouts>
+                <file>cmslayouts.xml</file>
+            </cmslayouts>
+        </updates>
+    </layout>-->
+
     <translate>
         <modules>
             <Yireo_CmsLayouts>

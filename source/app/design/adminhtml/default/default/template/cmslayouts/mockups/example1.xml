@@ -1,0 +1,45 @@
+<cmslayout>
+    <title>Homepage Layout</title>
+    <active>1</active>
+    <elements>
+        <element id="example1-banner">
+            <fields>
+                <field type="text" name="text" label="Text" />
+                <field type="color" name="color" label="Color" />
+                <field type="image" name="image" label="Image" />
+            </fields>
+        </element>
+
+        <element id="example1-left">
+            <fields>
+                <field type="text" name="text" label="Text" />
+                <field type="select" name="text_alignment" label="Text Alignment">
+                    <option value="left">Left</option>
+                    <option value="right">Right</option>
+                </field>
+                <field type="image" name="image" label="Image" />
+                <field type="text" name="button_link" label="Button Link" />
+                <field type="text" name="button_text" label="Button Text" />
+            </fields>
+        </element>
+
+        <element id="example1-middle">
+            <fields>
+                <field type="product" name="product" label="Product ID" />
+            </fields>
+        </element>
+
+        <element id="example1-right">
+            <fields>
+                <field type="text" name="text" label="Text" />
+                <field type="select" name="text_alignment" label="Text Alignment">
+                    <option value="left">Left</option>
+                    <option value="right">Right</option>
+                </field>
+                <field type="image" name="image" label="Image" />
+                <field type="text" name="button_link" label="Button Link" />
+                <field type="text" name="button_text" label="Button Text" />
+            </fields>
+        </element>
+    </elements>
+</cmslayout>

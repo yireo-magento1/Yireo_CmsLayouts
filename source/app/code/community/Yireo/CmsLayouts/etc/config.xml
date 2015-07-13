@@ -73,6 +73,16 @@
 
     </global>
 
+    <adminhtml>
+        <layout>
+            <updates>
+                <cmslayouts>
+                    <file>cmslayouts.xml</file>
+                </cmslayouts>
+            </updates>
+        </layout>
+    </adminhtml>
+
     <admin>
         <routers>
             <adminhtml>

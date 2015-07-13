@@ -37,6 +37,7 @@ $entity = $this->getEntity();
     <?php echo $this->getChildHtml('select') ?>
 <?php endif; ?>
 
+<input id="form_redirect" type="hidden" name="form_redirect" value="overview" />
 <input type="hidden" name="mockup_id" value="<?php echo $this->getEntity()->getMockupId(); ?>" />
 <?php echo $this->getBlockHtml('formkey')?>
 </form>
