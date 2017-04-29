@@ -3,14 +3,14 @@
  * CmsLayouts extension for Magento
  *
  * @package     Yireo_CmsLayouts
- * @author      Yireo (http://www.yireo.com/)
- * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @author      Yireo (https://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (https://www.yireo.com/)
  * @license     Open Source License (OSL v3)
  */
 
 class Yireo_CmsLayouts_Block_Adminhtml_Menu extends Mage_Core_Block_Template
 {
-    /*
+    /**
      * Constructor method
      */
     public function _construct()
@@ -20,7 +20,7 @@ class Yireo_CmsLayouts_Block_Adminhtml_Menu extends Mage_Core_Block_Template
         $this->setTemplate('cmslayouts/menu.phtml');
     }
 
-    /*
+    /**
      * Helper method to get a list of the menu-items
      */
     public function getMenuItems()

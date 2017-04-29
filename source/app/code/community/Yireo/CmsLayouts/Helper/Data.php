@@ -3,8 +3,8 @@
  * Yireo CmsLayouts for Magento
  *
  * @package     Yireo_CmsLayouts
- * @author      Yireo (http://www.yireo.com/)
- * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @author      Yireo (https://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (https://www.yireo.com/)
  * @license     Open Source License (OSL v3)
  */
 
@@ -13,6 +13,12 @@
  */
 class Yireo_CmsLayouts_Helper_Data extends Mage_Core_Helper_Abstract
 {
+    /**
+     * @param $matchMockupFile
+     *
+     * @return mixed
+     * @throws Exception
+     */
     public function getMockupXmlFile($matchMockupFile)
     {
         $mockupFiles = $this->getMockupXmlFiles();
@@ -25,6 +31,9 @@ class Yireo_CmsLayouts_Helper_Data extends Mage_Core_Helper_Abstract
         throw new Exception('Unable to find Yireo_CmsLayouts XML file for mockup "'.$matchMockupFile.'"');
     }
 
+    /**
+     * @return array
+     */
     public function getMockupXmlFiles()
     {
         $folder = BP.'/app/design/adminhtml/default/default/template/cmslayouts/mockups';
@@ -32,11 +41,21 @@ class Yireo_CmsLayouts_Helper_Data extends Mage_Core_Helper_Abstract
         return $files;
     }
 
+    /**
+     * @param $folder
+     *
+     * @return array
+     */
     public function getMockupXmlFilesFromFolder($folder)
     {
-        return glob($folder.'/*.xml');
+        return glob($folder.'/**.xml');
     }
 
+    /**
+     * @param $xmlFile
+     *
+     * @return array
+     */
     public function getMetaDataFromMockupXmlFile($xmlFile)
     {
         $phtmlFile = preg_replace('/\.xml$/', '.phtml', $xmlFile);
@@ -82,6 +101,12 @@ class Yireo_CmsLayouts_Helper_Data extends Mage_Core_Helper_Abstract
         return $metaData;
     }
 
+    /**
+     * @param $mockup
+     * @param $elementCode
+     *
+     * @return array|bool
+     */
     public function getElementDataByCode($mockup, $elementCode)
     {
         $elements = $mockup->getElements();
@@ -103,6 +128,11 @@ class Yireo_CmsLayouts_Helper_Data extends Mage_Core_Helper_Abstract
         return false;
     }
 
+    /**
+     * @param $string
+     *
+     * @return int
+     */
     public function getProductIdFromString($string)
     {
         $string = preg_replace('/^product\//', '', $string);

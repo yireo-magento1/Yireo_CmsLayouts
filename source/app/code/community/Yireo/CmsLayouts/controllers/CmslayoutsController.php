@@ -3,8 +3,8 @@
  * CmsLayouts extension for Magento
  *
  * @package     Yireo_CmsLayouts
- * @author      Yireo (http://www.yireo.com/)
- * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @author      Yireo (https://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (https://www.yireo.com/)
  * @license     Open Source License (OSL v3)
  */
 
@@ -332,5 +332,12 @@ class Yireo_CmsLayouts_CmslayoutsController extends Mage_Adminhtml_Controller_Ac
         }
 
         return $this->element;
+    }
+
+    protected function _isAllowed()
+    {
+        $aclResource = 'admin/cms/cmslayouts';
+
+        return Mage::getSingleton('admin/session')->isAllowed($aclResource);
     }
 }

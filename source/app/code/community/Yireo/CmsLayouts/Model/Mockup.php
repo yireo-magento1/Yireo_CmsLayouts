@@ -3,8 +3,8 @@
  * Yireo CmsLayouts for Magento 
  *
  * @package     Yireo_CmsLayouts
- * @author      Yireo (http://www.yireo.com/)
- * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @author      Yireo (https://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (https://www.yireo.com/)
  * @license     Open Source License (OSL v3)
  */
 

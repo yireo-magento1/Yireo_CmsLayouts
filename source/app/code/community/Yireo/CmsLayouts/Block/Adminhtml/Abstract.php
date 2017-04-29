@@ -3,14 +3,14 @@
  * CmsLayouts extension for Magento
  *
  * @package     Yireo_CmsLayouts
- * @author      Yireo (http://www.yireo.com/)
- * @copyright   Copyright 2015 Yireo (http://www.yireo.com/)
+ * @author      Yireo (https://www.yireo.com/)
+ * @copyright   Copyright 2015 Yireo (https://www.yireo.com/)
  * @license     Open Source License (OSL v3)
  */
 
 class Yireo_CmsLayouts_Block_Adminhtml_Abstract extends Mage_Adminhtml_Block_Widget_Container
 {
-    /*
+    /**
      * Helper to return the header of this page
      */
     public function getHeader($title = null)
@@ -18,7 +18,7 @@ class Yireo_CmsLayouts_Block_Adminhtml_Abstract extends Mage_Adminhtml_Block_Wid
         return 'CMS Layouts - '.$this->__($title);
     }
 
-    /*
+    /**
      * Helper to return the menu
      */
     public function getMenu()
@@ -29,8 +29,6 @@ class Yireo_CmsLayouts_Block_Adminhtml_Abstract extends Mage_Adminhtml_Block_Wid
     /**
      * Return the version
      *
-     * @access public
-     * @param null
      * @return string
      */
     public function getVersion()
